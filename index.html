@@ -2,133 +2,171 @@
 <html lang="my">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
+
 <title>Pattaya Dinosaur Event</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
 
 :root{
   --bg:#07150f;
-  --card:#10251b;
-  --card2:#162d22;
+  --bg2:#0d2117;
+  --card:#10261a;
+  --card2:#173222;
   --gold:#e8c85d;
   --cream:#fff8e8;
-  --green:#18b878;
-  --blue:#218cff;
+  --green:#16b875;
+  --blue:#1689ee;
+  --purple:#6753dc;
   --red:#ff6848;
-  --text:#f8fff9;
+  --white:#fff;
   --muted:#aabdb2;
+  --border:#355543;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  background:
-    radial-gradient(circle at 15% 5%,#244b2e 0,#07150f 28%),
-    radial-gradient(circle at 90% 40%,#263e24 0,#07150f 35%);
-  color:var(--text);
   min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 0%,#24502f 0,transparent 28%),
+    radial-gradient(circle at 100% 35%,#432052 0,transparent 30%),
+    linear-gradient(145deg,#06130d,#0a1c13);
+  color:var(--white);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
-header{
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* HEADER */
+
+.header{
   position:sticky;
   top:0;
-  z-index:20;
-  padding:14px 16px;
-  background:rgba(7,21,15,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid #31523e;
+  z-index:100;
+  background:rgba(5,17,11,.95);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #31513e;
 }
 
 .header-inner{
   max-width:1100px;
   margin:auto;
+  min-height:76px;
+  padding:10px 15px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
 }
 
-.logo{
+.brand{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
-.dino{
-  width:45px;
-  height:45px;
-  border-radius:14px;
+.brand-icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
   display:grid;
   place-items:center;
-  background:#b8ed8d;
-  font-size:26px;
+  background:#b9ef91;
+  font-size:28px;
 }
 
-.logo h1{
+.brand-title{
   margin:0;
-  font-size:20px;
+  font-size:21px;
+  line-height:1.05;
 }
 
-.logo small{
+.brand-sub{
+  margin-top:5px;
   color:var(--muted);
+  font-size:13px;
 }
 
-.top-actions{
-  display:flex;
-  gap:8px;
-}
-
-button{
-  border:0;
-  cursor:pointer;
-  font-weight:800;
-  font-size:15px;
-}
-
-.btn{
-  padding:11px 16px;
-  border-radius:12px;
-}
-
-.reset{
-  background:#382018;
+.reset-top{
+  padding:11px 18px;
+  border-radius:14px;
   color:#ffad98;
-  border:1px solid #7c4031;
+  background:#321d18;
+  border:1px solid #874b3a;
+  font-weight:900;
 }
+
+/* MAIN */
 
 main{
   max-width:1100px;
   margin:auto;
-  padding:18px 14px 110px;
+  padding:16px 14px 110px;
 }
 
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+/* HERO */
+
 .hero{
-  padding:22px;
+  border:1px solid var(--border);
   border-radius:25px;
+  padding:21px;
+  margin-bottom:16px;
   background:
-    radial-gradient(circle at 5% 20%,#237d6d55,transparent 30%),
-    linear-gradient(135deg,#173b27,#0c1914);
-  border:1px solid #34533e;
-  margin-bottom:18px;
+    radial-gradient(circle at 0 30%,#167e7b55,transparent 30%),
+    radial-gradient(circle at 100% 100%,#a21e9b44,transparent 35%),
+    linear-gradient(135deg,#163c27,#101a17);
+  box-shadow:0 12px 40px #0005;
 }
 
 .hero h2{
   margin:0 0 5px;
-  font-size:30px;
+  font-size:29px;
 }
 
 .hero p{
   margin:0;
-  color:#b9ccc0;
+  color:#b8cbc0;
 }
 
-.info-grid{
+.form-grid{
+  margin-top:18px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:12px;
-  margin-top:18px;
 }
 
 .field{
@@ -138,154 +176,305 @@ main{
 }
 
 .field label{
-  font-weight:800;
-  color:#dbe8df;
+  font-weight:900;
+  color:#dce9df;
 }
 
-input,select{
+input,
+select{
   width:100%;
-  padding:14px;
-  border-radius:13px;
-  border:1px solid #354f41;
-  background:#0b1712;
+  border:1px solid #385344;
+  background:#0a1711;
   color:white;
-  font-size:16px;
+  border-radius:13px;
+  padding:13px 14px;
   outline:none;
 }
 
-input:focus,select:focus{
+input:focus,
+select:focus{
   border-color:var(--gold);
 }
+
+/* NAV */
+
+.page-nav{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-bottom:16px;
+}
+
+.nav-btn{
+  padding:13px 8px;
+  border-radius:14px;
+  color:white;
+  background:#10251a;
+  border:1px solid var(--border);
+  font-weight:900;
+}
+
+.nav-btn.active{
+  background:var(--green);
+  border-color:#5be0a9;
+}
+
+/* TICKETS */
 
 .ticket-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  gap:15px;
 }
 
 .ticket{
-  background:linear-gradient(145deg,#13291e,#0b1913);
-  border:1px solid #385343;
-  border-radius:24px;
-  padding:12px;
-  box-shadow:0 12px 35px #0005;
   overflow:hidden;
+  border:1px solid #385746;
+  border-radius:23px;
+  padding:10px;
+  background:
+    linear-gradient(145deg,#162f21,#091810);
+  box-shadow:0 12px 32px #0006;
 }
 
 .ticket-image{
   height:190px;
-  border-radius:17px;
   overflow:hidden;
   position:relative;
+  border-radius:17px;
   background:
-    linear-gradient(135deg,#dce9cf,#fff4c4);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    radial-gradient(circle at 20% 20%,#fff9c0,transparent 35%),
+    linear-gradient(135deg,#e9f1d5,#fff0a8);
 }
 
 .ticket-image img{
+  display:none;
   width:100%;
   height:100%;
   object-fit:cover;
-  display:none;
 }
 
 .ticket-placeholder{
-  color:#163c29;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:#15452f;
   text-align:center;
-  padding:20px;
 }
 
-.ticket-placeholder .price{
-  font-size:42px;
+.ticket-icon{
+  font-size:30px;
+}
+
+.ticket-price{
+  margin-top:3px;
+  font-size:43px;
+  line-height:1;
+  font-weight:1000;
+}
+
+.ticket-museum{
+  margin-top:9px;
+  font-size:12px;
   font-weight:950;
+  letter-spacing:1px;
 }
 
-.ticket-placeholder small{
-  font-weight:800;
-}
-
-.upload{
+.image-upload{
   position:absolute;
   right:8px;
   bottom:8px;
-  background:#000b;
-  color:white;
   padding:8px 10px;
   border-radius:10px;
+  color:white;
+  background:#000b;
   font-size:12px;
+  font-weight:900;
 }
 
 .ticket-name{
-  margin:12px 4px 6px;
-  font-size:20px;
-  font-weight:950;
+  margin:13px 4px 5px;
   color:#f4df91;
+  font-size:20px;
+  font-weight:1000;
 }
 
-.ticket-sub{
-  color:#9fb3a7;
-  font-size:13px;
+.ticket-desc{
   margin:0 4px 10px;
+  min-height:38px;
+  color:#aebfb4;
+  font-size:13px;
+  line-height:1.35;
 }
 
 .qty{
-  width:100%;
   text-align:center;
-  font-size:25px;
-  font-weight:900;
-  padding:14px;
+  font-size:27px;
+  font-weight:1000;
   background:#f8faf8;
-  color:#174d36;
+  color:#155038;
   border-radius:16px;
+  padding:12px;
 }
 
-.clear{
+.clear-btn{
   width:100%;
   margin-top:9px;
   padding:12px;
   border-radius:13px;
-  background:#fff3ef;
   color:#ad4b35;
+  background:#fff2ed;
+  font-weight:1000;
 }
 
+/* SUMMARY */
+
 .summary{
-  margin-top:18px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
+  margin-top:17px;
 }
 
 .stat{
-  background:#12271d;
-  border:1px solid #385343;
+  padding:17px;
   border-radius:17px;
-  padding:16px;
+  border:1px solid var(--border);
+  background:#10261a;
 }
 
-.stat span{
-  display:block;
-  color:#9eb3a6;
+.stat-label{
+  color:#9fb4a8;
   font-size:13px;
 }
 
-.stat strong{
-  display:block;
-  margin-top:5px;
-  font-size:24px;
+.stat-value{
+  margin-top:6px;
+  font-size:25px;
+  font-weight:1000;
 }
+
+/* REPORT */
+
+.section-title{
+  margin:8px 0 15px;
+  font-size:28px;
+}
+
+.report-card,
+.history-card,
+.settings-card{
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:17px;
+  margin-bottom:12px;
+  background:#10261a;
+}
+
+.report-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:13px 0;
+  border-bottom:1px solid #284536;
+}
+
+.report-row:last-child{
+  border-bottom:0;
+}
+
+.report-row strong{
+  color:#f4df91;
+}
+
+.big-total{
+  font-size:32px;
+  color:#5be0a9;
+  font-weight:1000;
+}
+
+/* HISTORY */
+
+.history-empty{
+  padding:35px 15px;
+  text-align:center;
+  color:#91a79a;
+}
+
+.history-item{
+  border-bottom:1px solid #294637;
+  padding:13px 0;
+}
+
+.history-item:last-child{
+  border-bottom:0;
+}
+
+.history-date{
+  color:#f1d979;
+  font-weight:1000;
+}
+
+.history-total{
+  margin-top:4px;
+  color:#5be0a9;
+  font-weight:900;
+}
+
+.history-delete{
+  margin-top:8px;
+  padding:8px 11px;
+  border-radius:10px;
+  color:#ffad98;
+  background:#321d18;
+  border:1px solid #714032;
+}
+
+/* SETTINGS */
+
+.setting-row{
+  padding:15px 0;
+  border-bottom:1px solid #294637;
+}
+
+.setting-row:last-child{
+  border-bottom:0;
+}
+
+.setting-name{
+  font-size:17px;
+  font-weight:1000;
+  margin-bottom:9px;
+  color:#f4df91;
+}
+
+.save-setting{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border-radius:14px;
+  background:var(--green);
+  color:white;
+  font-weight:1000;
+}
+
+/* BOTTOM */
 
 .bottom{
   position:fixed;
-  bottom:0;
+  z-index:90;
   left:0;
   right:0;
-  z-index:30;
-  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-  background:rgba(6,18,12,.96);
+  bottom:0;
+  padding:
+    9px 12px
+    calc(9px + env(safe-area-inset-bottom));
+  background:rgba(5,17,11,.96);
   backdrop-filter:blur(18px);
-  border-top:1px solid #304c3b;
+  border-top:1px solid #31513e;
 }
 
 .bottom-inner{
@@ -293,45 +482,73 @@ input:focus,select:focus{
   margin:auto;
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
-  gap:10px;
+  gap:9px;
 }
 
 .bottom button{
-  padding:15px 10px;
+  padding:15px 8px;
+  border:0;
   border-radius:16px;
   color:white;
+  font-weight:1000;
 }
 
-.menu{background:#16a968}
-.save{background:#1688ee}
-.csv{background:#6955dc}
+.menu-btn{
+  background:#16ae6f;
+}
+
+.csv-btn{
+  background:#6752dc;
+}
+
+.save-btn{
+  background:#1789ed;
+}
+
+/* TOAST */
 
 .toast{
   position:fixed;
+  z-index:200;
   left:50%;
   bottom:95px;
-  transform:translateX(-50%) translateY(20px);
+  transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
   background:#f7fff9;
   color:#143625;
   padding:13px 18px;
   border-radius:14px;
-  font-weight:800;
-  opacity:0;
-  pointer-events:none;
+  font-weight:900;
+  box-shadow:0 10px 35px #0006;
   transition:.25s;
-  z-index:50;
-  box-shadow:0 8px 30px #0005;
 }
 
 .toast.show{
   opacity:1;
-  transform:translateX(-50%) translateY(0);
+  transform:translate(-50%,0);
 }
 
+/* MOBILE */
+
 @media(max-width:700px){
+
+  .brand-title{
+    font-size:19px;
+  }
+
+  .brand-icon{
+    width:46px;
+    height:46px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
   .ticket-grid{
     grid-template-columns:1fr 1fr;
-    gap:10px;
+    gap:9px;
   }
 
   .ticket{
@@ -343,37 +560,35 @@ input:focus,select:focus{
     height:145px;
   }
 
+  .ticket-price{
+    font-size:34px;
+  }
+
   .ticket-name{
     font-size:17px;
   }
 
-  .ticket-sub{
+  .ticket-desc{
     font-size:11px;
   }
 
   .qty{
     font-size:22px;
-    padding:12px;
+    padding:11px;
   }
 
   .summary{
     grid-template-columns:1fr 1fr;
   }
 
-  .summary .stat:last-child{
+  .stat:last-child{
     grid-column:1/-1;
   }
 
-  .info-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h2{
-    font-size:25px;
-  }
 }
 
 @media(max-width:390px){
+
   .ticket-grid{
     grid-template-columns:1fr;
   }
@@ -381,364 +596,821 @@ input:focus,select:focus{
   .ticket-image{
     height:190px;
   }
+
+  .summary{
+    grid-template-columns:1fr;
+  }
+
+  .stat:last-child{
+    grid-column:auto;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- HEADER -->
+
+<header class="header">
+
   <div class="header-inner">
-    <div class="logo">
-      <div class="dino">🦖</div>
-      <div>
-        <h1>Pattaya Dinosaur Event</h1>
-        <small>Ticket Sales System</small>
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        🦖
       </div>
+
+      <div>
+        <h1 class="brand-title">
+          Pattaya Dinosaur Event
+        </h1>
+
+        <div class="brand-sub">
+          Playing Ticket System
+        </div>
+      </div>
+
     </div>
 
-    <div class="top-actions">
-      <button class="btn reset" onclick="resetAll()">Reset</button>
-    </div>
+    <button
+      class="reset-top"
+      onclick="resetAll()">
+      Reset
+    </button>
+
   </div>
+
 </header>
+
 
 <main>
 
-<section class="hero">
-  <h2>🎟️ Ticket Sales</h2>
-  <p>DINOSAUR ACTIVITY MUSEUM • Pattaya</p>
+<!-- PAGE NAV -->
 
-  <div class="info-grid">
+<nav class="page-nav">
 
-    <div class="field">
-      <label>📍 ပွဲနေရာ</label>
-      <input id="venue" value="Pattaya Event Hall">
+  <button
+    class="nav-btn active"
+    data-page="playing"
+    onclick="openPage('playing',this)">
+    🦖 Playing Ticket
+  </button>
+
+  <button
+    class="nav-btn"
+    data-page="report"
+    onclick="openPage('report',this)">
+    📊 Report
+  </button>
+
+  <button
+    class="nav-btn"
+    data-page="settings"
+    onclick="openPage('settings',this)">
+    ⚙️ Settings
+  </button>
+
+</nav>
+
+
+<!-- ================= PLAYING PAGE ================= -->
+
+<section
+  id="page-playing"
+  class="page active">
+
+  <section class="hero">
+
+    <h2>
+      🎟️ Playing Ticket
+    </h2>
+
+    <p>
+      Dinosaur Activity Museum
+      • Activity tickets and packages
+    </p>
+
+    <div class="form-grid">
+
+      <div class="field">
+
+        <label>
+          📍 ပွဲနေရာ
+        </label>
+
+        <input
+          id="venue"
+          value="Pattaya Event Hall"
+          oninput="markUnsaved()">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          📅 ရက်စွဲ
+        </label>
+
+        <input
+          id="date"
+          type="date"
+          onchange="markUnsaved()">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          👤 ရောင်းသူ
+        </label>
+
+        <input
+          id="seller"
+          placeholder="ရောင်းသူအမည်"
+          oninput="markUnsaved()">
+
+      </div>
+
+
+      <div class="field">
+
+        <label>
+          🌐 Language
+        </label>
+
+        <select
+          id="language"
+          onchange="markUnsaved()">
+
+          <option>Myanmar</option>
+          <option>ไทย</option>
+          <option>English</option>
+
+        </select>
+
+      </div>
+
     </div>
 
-    <div class="field">
-      <label>📅 ရက်စွဲ</label>
-      <input id="date" type="date">
+  </section>
+
+
+  <section
+    id="ticketGrid"
+    class="ticket-grid">
+  </section>
+
+
+  <section class="summary">
+
+    <div class="stat">
+
+      <div class="stat-label">
+        🎟️ Total Tickets
+      </div>
+
+      <div
+        id="totalQty"
+        class="stat-value">
+        0
+      </div>
+
     </div>
 
-    <div class="field">
-      <label>🧑‍💼 ရောင်းသူ</label>
-      <input id="seller" placeholder="ရောင်းသူအမည်">
+
+    <div class="stat">
+
+      <div class="stat-label">
+        💰 Total Sales
+      </div>
+
+      <div
+        id="totalAmount"
+        class="stat-value">
+        ฿0
+      </div>
+
     </div>
 
-    <div class="field">
-      <label>🌐 Language</label>
-      <select id="language">
-        <option>Myanmar</option>
-        <option>ไทย</option>
-        <option>English</option>
-      </select>
+
+    <div class="stat">
+
+      <div class="stat-label">
+        💾 Status
+      </div>
+
+      <div
+        id="savedStatus"
+        class="stat-value">
+        Not Saved
+      </div>
+
     </div>
 
-  </div>
+  </section>
+
 </section>
 
-<section class="ticket-grid" id="tickets"></section>
 
-<section class="summary">
+<!-- ================= REPORT PAGE ================= -->
 
-  <div class="stat">
-    <span>🎟️ Total Tickets</span>
-    <strong id="totalQty">0</strong>
+<section
+  id="page-report"
+  class="page">
+
+  <h2 class="section-title">
+    📊 Report
+  </h2>
+
+  <div class="report-card">
+
+    <div class="report-row">
+
+      <span>
+        Date
+      </span>
+
+      <strong id="reportDate">
+        -
+      </strong>
+
+    </div>
+
+
+    <div class="report-row">
+
+      <span>
+        Venue
+      </span>
+
+      <strong id="reportVenue">
+        -
+      </strong>
+
+    </div>
+
+
+    <div class="report-row">
+
+      <span>
+        Seller
+      </span>
+
+      <strong id="reportSeller">
+        -
+      </strong>
+
+    </div>
+
   </div>
 
-  <div class="stat">
-    <span>💰 Total Sales</span>
-    <strong id="totalAmount">฿0</strong>
+
+  <div
+    id="reportTickets"
+    class="report-card">
   </div>
 
-  <div class="stat">
-    <span>📊 Saved</span>
-    <strong id="savedStatus">No</strong>
+
+  <div class="report-card">
+
+    <div>
+      Total Tickets
+    </div>
+
+    <div
+      id="reportQty"
+      class="big-total">
+      0
+    </div>
+
+    <br>
+
+    <div>
+      Total Sales
+    </div>
+
+    <div
+      id="reportAmount"
+      class="big-total">
+      ฿0
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SETTINGS PAGE ================= -->
+
+<section
+  id="page-settings"
+  class="page">
+
+  <h2 class="section-title">
+    ⚙️ Settings
+  </h2>
+
+  <div class="settings-card">
+
+    <p style="color:#aabdb2">
+      Ticket အမည်၊ ဈေးနှုန်းနှင့်
+      ပုံများကို ဒီနေရာမှာ ပြင်နိုင်ပါတယ်။
+    </p>
+
+    <div id="settingsList">
+    </div>
+
+    <button
+      class="save-setting"
+      onclick="saveSettings()">
+      💾 Save Settings
+    </button>
+
   </div>
 
 </section>
 
 </main>
 
+
+<!-- BOTTOM BAR -->
+
 <div class="bottom">
+
   <div class="bottom-inner">
-    <button class="menu" onclick="scrollTopPage()">☰ Menu</button>
-    <button class="csv" onclick="exportCSV()">⬇ CSV</button>
-    <button class="save" onclick="saveData()">▣ Save</button>
+
+    <button
+      class="menu-btn"
+      onclick="openPage('playing')">
+      ☰ Menu
+    </button>
+
+    <button
+      class="csv-btn"
+      onclick="exportCSV()">
+      ⬇ CSV
+    </button>
+
+    <button
+      class="save-btn"
+      onclick="saveData()">
+      ▣ Save
+    </button>
+
   </div>
+
 </div>
 
-<div class="toast" id="toast"></div>
+
+<div
+  id="toast"
+  class="toast">
+</div>
+
 
 <script>
 
-const TICKET_TYPES = [
+/* =====================================================
+   TICKET DATA
+===================================================== */
+
+const DEFAULT_TICKETS = [
+
   {
     id:"activity50",
     name:"50฿ Activity Ticket",
     price:50,
-    sub:"กิจกรรม / Activity Ticket",
-    emoji:"🎟️"
+    desc:"กิจกรรม / Activity Ticket",
+    icon:"🎟️"
   },
+
   {
     id:"activity100",
     name:"100฿ Activity Ticket",
     price:100,
-    sub:"กิจกรรม / Activity Ticket",
-    emoji:"🎟️"
+    desc:"กิจกรรม / Activity Ticket",
+    icon:"🎟️"
   },
+
   {
     id:"activity200",
     name:"200฿ Activity Ticket",
     price:200,
-    sub:"กิจกรรม / Activity Ticket",
-    emoji:"🎟️"
+    desc:"กิจกรรม / Activity Ticket",
+    icon:"🎟️"
   },
+
   {
     id:"packageA",
     name:"Package A",
     price:0,
-    sub:"Entry + Dino Gold + Dino Rider",
-    emoji:"🦕"
+    desc:"Entry + Dino Gold + Dino Rider",
+    icon:"🦕"
   },
+
   {
     id:"packageB",
     name:"Package B",
     price:0,
-    sub:"Special Activity Package",
-    emoji:"🦖"
+    desc:"Special Dinosaur Activity Package",
+    icon:"🦖"
   }
+
 ];
 
-const KEY="PATTAYA_DINOSAUR_TICKET_V5";
 
-let data = loadData();
+/* =====================================================
+   STORAGE
+===================================================== */
 
-function loadData(){
+const STORAGE_KEY =
+  "PATTAYA_DINOSAUR_PLAYING_TICKET_V6";
+
+const HISTORY_KEY =
+  "PATTAYA_DINOSAUR_HISTORY_V1";
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let tickets =
+  loadTickets();
+
+let state =
+  loadState();
+
+
+function loadTickets(){
 
   try{
-    const saved=JSON.parse(localStorage.getItem(KEY));
 
-    if(saved){
+    const saved =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY+"_tickets")
+      );
+
+    if(saved && Array.isArray(saved)){
       return saved;
     }
 
   }catch(e){}
 
-  return {
-    venue:"Pattaya Event Hall",
-    date:new Date().toISOString().slice(0,10),
-    seller:"",
-    language:"Myanmar",
-    tickets:{
-      activity50:0,
-      activity100:0,
-      activity200:0,
-      packageA:0,
-      packageB:0
-    },
-    images:{}
-  };
+  return DEFAULT_TICKETS.map(t=>({...t}));
+
 }
 
-function render(){
 
-  document.getElementById("venue").value=data.venue || "";
-  document.getElementById("date").value=data.date || "";
-  document.getElementById("seller").value=data.seller || "";
-  document.getElementById("language").value=data.language || "Myanmar";
+function loadState(){
 
-  const container=document.getElementById("tickets");
+  try{
 
-  container.innerHTML="";
+    const saved =
+      JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+      );
 
-  TICKET_TYPES.forEach(t=>{
+    if(saved){
 
-    const qty=Number(data.tickets[t.id] || 0);
-    const image=data.images[t.id] || "";
+      return {
+        venue:saved.venue || "Pattaya Event Hall",
 
-    const card=document.createElement("article");
+        date:saved.date ||
+          new Date().toISOString().slice(0,10),
+
+        seller:saved.seller || "",
+
+        language:saved.language || "Myanmar",
+
+        qty:saved.qty || {},
+
+        images:saved.images || {}
+
+      };
+
+    }
+
+  }catch(e){}
+
+  return {
+
+    venue:"Pattaya Event Hall",
+
+    date:new Date().toISOString().slice(0,10),
+
+    seller:"",
+
+    language:"Myanmar",
+
+    qty:{},
+
+    images:{}
+
+  };
+
+}
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+function init(){
+
+  document.getElementById("venue").value =
+    state.venue;
+
+  document.getElementById("date").value =
+    state.date;
+
+  document.getElementById("seller").value =
+    state.seller;
+
+  document.getElementById("language").value =
+    state.language;
+
+  renderTickets();
+
+  renderSettings();
+
+  calculate();
+
+}
+
+init();
+
+
+/* =====================================================
+   PAGE SYSTEM
+===================================================== */
+
+function openPage(page,button){
+
+  document.querySelectorAll(".page")
+    .forEach(p=>{
+      p.classList.remove("active");
+    });
+
+  const target =
+    document.getElementById("page-"+page);
+
+  if(target){
+    target.classList.add("active");
+  }
+
+  document.querySelectorAll(".nav-btn")
+    .forEach(b=>{
+      b.classList.remove("active");
+    });
+
+  if(button){
+    button.classList.add("active");
+  }else{
+
+    const btn =
+      document.querySelector(
+        '[data-page="'+page+'"]'
+      );
+
+    if(btn){
+      btn.classList.add("active");
+    }
+
+  }
+
+  if(page==="report"){
+    renderReport();
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   RENDER TICKETS
+===================================================== */
+
+function renderTickets(){
+
+  const grid =
+    document.getElementById("ticketGrid");
+
+  grid.innerHTML="";
+
+  tickets.forEach(ticket=>{
+
+    const qty =
+      Number(state.qty[ticket.id] || 0);
+
+    const image =
+      state.images[ticket.id] || "";
+
+    const card =
+      document.createElement("article");
+
     card.className="ticket";
 
     card.innerHTML=`
 
       <div class="ticket-image">
 
-        <div class="ticket-placeholder">
-          <div style="font-size:30px">${t.emoji}</div>
-          <div class="price">
-            ${t.price ? "฿"+t.price : "PACKAGE"}
+        <div
+          class="ticket-placeholder"
+          id="placeholder-${ticket.id}">
+
+          <div class="ticket-icon">
+            ${ticket.icon}
           </div>
-          <small>DINOSAUR ACTIVITY MUSEUM</small>
+
+          <div class="ticket-price">
+            ${
+              ticket.price>0
+              ? "฿"+ticket.price
+              : "PACKAGE"
+            }
+          </div>
+
+          <div class="ticket-museum">
+            DINOSAUR ACTIVITY MUSEUM
+          </div>
+
         </div>
 
-        <img id="img-${t.id}" src="${image}">
+        <img
+          id="image-${ticket.id}"
+          src="${image}">
 
-        <label class="upload">
+        <label class="image-upload">
+
           📷 Add Image
+
           <input
             type="file"
             accept="image/*"
             hidden
-            onchange="addImage(event,'${t.id}')"
-          >
+            onchange="changeImage(event,'${ticket.id}')">
+
         </label>
 
       </div>
 
-      <div class="ticket-name">${t.name}</div>
 
-      <p class="ticket-sub">${t.sub}</p>
+      <div class="ticket-name">
+        ${escapeHTML(ticket.name)}
+      </div>
+
+
+      <p class="ticket-desc">
+        ${escapeHTML(ticket.desc)}
+      </p>
+
 
       <input
         class="qty"
         type="number"
         min="0"
         value="${qty}"
-        onchange="setQty('${t.id}',this.value)"
-      >
+        onchange="changeQty('${ticket.id}',this.value)">
+
 
       <button
-        class="clear"
-        onclick="clearTicket('${t.id}')">
+        class="clear-btn"
+        onclick="clearTicket('${ticket.id}')">
+
         Clear This
+
       </button>
 
     `;
 
-    container.appendChild(card);
+    grid.appendChild(card);
 
     if(image){
-      const img=document.getElementById("img-"+t.id);
+
+      const img =
+        document.getElementById(
+          "image-"+ticket.id
+        );
+
+      const placeholder =
+        document.getElementById(
+          "placeholder-"+ticket.id
+        );
+
       img.style.display="block";
-      img.previousElementSibling.style.display="none";
+
+      placeholder.style.display="none";
+
     }
 
   });
 
-  calculate();
 }
 
-function setQty(id,value){
 
-  value=Math.max(0,parseInt(value)||0);
+/* =====================================================
+   QUANTITY
+===================================================== */
 
-  data.tickets[id]=value;
+function changeQty(id,value){
+
+  let qty =
+    parseInt(value,10);
+
+  if(isNaN(qty) || qty<0){
+    qty=0;
+  }
+
+  state.qty[id]=qty;
 
   calculate();
+
+  markUnsaved();
+
 }
+
 
 function clearTicket(id){
 
-  data.tickets[id]=0;
+  state.qty[id]=0;
 
-  render();
+  renderTickets();
+
+  calculate();
+
+  markUnsaved();
 
   showToast("Ticket cleared");
+
 }
+
+
+/* =====================================================
+   CALCULATION
+===================================================== */
 
 function calculate(){
 
-  let qty=0;
-  let amount=0;
+  let totalQty=0;
 
-  TICKET_TYPES.forEach(t=>{
+  let totalAmount=0;
 
-    const q=Number(data.tickets[t.id]||0);
+  tickets.forEach(ticket=>{
 
-    qty+=q;
+    const qty =
+      Number(state.qty[ticket.id] || 0);
 
-    amount+=q*t.price;
+    totalQty+=qty;
+
+    totalAmount +=
+      qty * Number(ticket.price || 0);
 
   });
 
-  document.getElementById("totalQty").textContent=qty;
-  document.getElementById("totalAmount").textContent=
-    "฿"+amount.toLocaleString();
+  document.getElementById("totalQty")
+    .textContent =
+    totalQty.toLocaleString();
+
+  document.getElementById("totalAmount")
+    .textContent =
+    "฿"+totalAmount.toLocaleString();
 
 }
 
-function syncFields(){
 
-  data.venue=document.getElementById("venue").value;
-  data.date=document.getElementById("date").value;
-  data.seller=document.getElementById("seller").value;
-  data.language=document.getElementById("language").value;
+/* =====================================================
+   IMAGE
+===================================================== */
 
-}
+function changeImage(event,id){
 
-function saveData(){
-
-  syncFields();
-
-  localStorage.setItem(KEY,JSON.stringify(data));
-
-  document.getElementById("savedStatus").textContent="Yes";
-
-  showToast("✅ Data saved");
-
-}
-
-function resetAll(){
-
-  if(!confirm("အားလုံး Reset လုပ်မလား?")) return;
-
-  localStorage.removeItem(KEY);
-
-  data={
-    venue:"Pattaya Event Hall",
-    date:new Date().toISOString().slice(0,10),
-    seller:"",
-    language:"Myanmar",
-    tickets:{
-      activity50:0,
-      activity100:0,
-      activity200:0,
-      packageA:0,
-      packageB:0
-    },
-    images:{}
-  };
-
-  render();
-
-  document.getElementById("savedStatus").textContent="No";
-
-  showToast("🔄 Reset complete");
-
-}
-
-function clearSavedStatus(){
-
-  document.getElementById("savedStatus").textContent="No";
-
-}
-
-["venue","date","seller","language"].forEach(id=>{
-
-  document.getElementById(id).addEventListener("input",()=>{
-    syncFields();
-    clearSavedStatus();
-  });
-
-});
-
-function addImage(event,id){
-
-  const file=event.target.files[0];
+  const file =
+    event.target.files[0];
 
   if(!file) return;
 
-  const reader=new FileReader();
+  const reader =
+    new FileReader();
 
   reader.onload=function(e){
 
-    data.images[id]=e.target.result;
+    state.images[id]=e.target.result;
 
-    localStorage.setItem(KEY,JSON.stringify(data));
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(state)
+    );
 
-    render();
+    renderTickets();
 
     showToast("📷 Image added");
 
@@ -748,32 +1420,332 @@ function addImage(event,id){
 
 }
 
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+function syncState(){
+
+  state.venue =
+    document.getElementById("venue").value;
+
+  state.date =
+    document.getElementById("date").value;
+
+  state.seller =
+    document.getElementById("seller").value;
+
+  state.language =
+    document.getElementById("language").value;
+
+}
+
+
+function saveData(){
+
+  syncState();
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(state)
+  );
+
+  saveHistory();
+
+  document.getElementById("savedStatus")
+    .textContent="Saved ✓";
+
+  showToast("✅ Data saved");
+
+}
+
+
+function markUnsaved(){
+
+  document.getElementById("savedStatus")
+    .textContent="Not Saved";
+
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+function getHistory(){
+
+  try{
+
+    const h =
+      JSON.parse(
+        localStorage.getItem(HISTORY_KEY)
+      );
+
+    return Array.isArray(h) ? h : [];
+
+  }catch(e){
+
+    return [];
+
+  }
+
+}
+
+
+function saveHistory(){
+
+  const history =
+    getHistory();
+
+  let totalQty=0;
+
+  let totalAmount=0;
+
+  const items={};
+
+  tickets.forEach(ticket=>{
+
+    const qty =
+      Number(state.qty[ticket.id] || 0);
+
+    items[ticket.id]=qty;
+
+    totalQty+=qty;
+
+    totalAmount +=
+      qty * Number(ticket.price || 0);
+
+  });
+
+  const record={
+
+    id:Date.now(),
+
+    date:state.date,
+
+    venue:state.venue,
+
+    seller:state.seller,
+
+    totalQty,
+
+    totalAmount,
+
+    items
+
+  };
+
+  history.unshift(record);
+
+  localStorage.setItem(
+    HISTORY_KEY,
+    JSON.stringify(history.slice(0,100))
+  );
+
+}
+
+
+/* =====================================================
+   REPORT
+===================================================== */
+
+function renderReport(){
+
+  syncState();
+
+  document.getElementById("reportDate")
+    .textContent =
+    state.date || "-";
+
+  document.getElementById("reportVenue")
+    .textContent =
+    state.venue || "-";
+
+  document.getElementById("reportSeller")
+    .textContent =
+    state.seller || "-";
+
+  const box =
+    document.getElementById(
+      "reportTickets"
+    );
+
+  box.innerHTML="";
+
+  let totalQty=0;
+
+  let totalAmount=0;
+
+  tickets.forEach(ticket=>{
+
+    const qty =
+      Number(state.qty[ticket.id] || 0);
+
+    const amount =
+      qty * Number(ticket.price || 0);
+
+    totalQty+=qty;
+
+    totalAmount+=amount;
+
+    const row =
+      document.createElement("div");
+
+    row.className="report-row";
+
+    row.innerHTML=`
+
+      <span>
+        ${escapeHTML(ticket.name)}
+      </span>
+
+      <strong>
+        ${qty.toLocaleString()}
+        ×
+        ฿${Number(ticket.price||0).toLocaleString()}
+      </strong>
+
+    `;
+
+    box.appendChild(row);
+
+  });
+
+  document.getElementById("reportQty")
+    .textContent =
+    totalQty.toLocaleString();
+
+  document.getElementById("reportAmount")
+    .textContent =
+    "฿"+totalAmount.toLocaleString();
+
+}
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+function renderSettings(){
+
+  const list =
+    document.getElementById(
+      "settingsList"
+    );
+
+  list.innerHTML="";
+
+  tickets.forEach((ticket,index)=>{
+
+    const row =
+      document.createElement("div");
+
+    row.className="setting-row";
+
+    row.innerHTML=`
+
+      <div class="setting-name">
+        ${ticket.icon} Ticket ${index+1}
+      </div>
+
+      <input
+        id="setting-name-${ticket.id}"
+        value="${escapeAttr(ticket.name)}"
+        placeholder="Ticket Name">
+
+      <br><br>
+
+      <input
+        id="setting-price-${ticket.id}"
+        type="number"
+        min="0"
+        value="${ticket.price}"
+        placeholder="Price">
+
+    `;
+
+    list.appendChild(row);
+
+  });
+
+}
+
+
+function saveSettings(){
+
+  tickets.forEach(ticket=>{
+
+    const name =
+      document.getElementById(
+        "setting-name-"+ticket.id
+      ).value;
+
+    const price =
+      Number(
+        document.getElementById(
+          "setting-price-"+ticket.id
+        ).value || 0
+      );
+
+    ticket.name =
+      name || ticket.name;
+
+    ticket.price =
+      price;
+
+  });
+
+  localStorage.setItem(
+    STORAGE_KEY+"_tickets",
+    JSON.stringify(tickets)
+  );
+
+  renderTickets();
+
+  calculate();
+
+  showToast("⚙️ Settings saved");
+
+}
+
+
+/* =====================================================
+   CSV
+===================================================== */
+
 function exportCSV(){
 
-  syncFields();
+  syncState();
 
   let rows=[];
 
   rows.push([
-    "Pattaya Dinosaur Event",
-    "",
-    "",
-    ""
+    "Pattaya Dinosaur Event"
   ]);
 
   rows.push([
+    "Playing Ticket Report"
+  ]);
+
+  rows.push([]);
+
+  rows.push([
     "Venue",
-    data.venue,
+    state.venue
+  ]);
+
+  rows.push([
     "Date",
-    data.date
+    state.date
   ]);
 
   rows.push([
     "Seller",
-    data.seller,
-    "",
-    ""
+    state.seller
   ]);
+
+  rows.push([]);
 
   rows.push([
     "Ticket Type",
@@ -782,29 +1754,33 @@ function exportCSV(){
     "Total"
   ]);
 
-  TICKET_TYPES.forEach(t=>{
+  let totalQty=0;
 
-    const q=Number(data.tickets[t.id]||0);
+  let totalAmount=0;
+
+  tickets.forEach(ticket=>{
+
+    const qty =
+      Number(state.qty[ticket.id] || 0);
+
+    const amount =
+      qty * Number(ticket.price || 0);
+
+    totalQty+=qty;
+
+    totalAmount+=amount;
 
     rows.push([
-      t.name,
-      t.price,
-      q,
-      t.price*q
+      ticket.name,
+      ticket.price,
+      qty,
+      amount
     ]);
 
   });
 
-  let totalQty=0;
-  let totalAmount=0;
-
-  TICKET_TYPES.forEach(t=>{
-    const q=Number(data.tickets[t.id]||0);
-    totalQty+=q;
-    totalAmount+=q*t.price;
-  });
-
   rows.push([]);
+
   rows.push([
     "TOTAL",
     "",
@@ -812,24 +1788,40 @@ function exportCSV(){
     totalAmount
   ]);
 
-  const csv=rows.map(row=>
-    row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",")
-  ).join("\n");
+  const csv =
+    rows.map(row=>
+      row.map(value=>
+        `"${String(value)
+          .replace(/"/g,'""')}"`
+      ).join(",")
+    ).join("\n");
 
-  const blob=new Blob(
-    ["\ufeff"+csv],
-    {type:"text/csv;charset=utf-8"}
-  );
+  const blob =
+    new Blob(
+      ["\ufeff"+csv],
+      {
+        type:"text/csv;charset=utf-8"
+      }
+    );
 
-  const url=URL.createObjectURL(blob);
+  const url =
+    URL.createObjectURL(blob);
 
-  const a=document.createElement("a");
+  const a =
+    document.createElement("a");
 
   a.href=url;
+
   a.download=
-    "pattaya-dinosaur-ticket-"+data.date+".csv";
+    "pattaya-playing-ticket-"+
+    state.date+
+    ".csv";
+
+  document.body.appendChild(a);
 
   a.click();
+
+  a.remove();
 
   URL.revokeObjectURL(url);
 
@@ -837,29 +1829,108 @@ function exportCSV(){
 
 }
 
-function showToast(text){
 
-  const el=document.getElementById("toast");
+/* =====================================================
+   RESET
+===================================================== */
 
-  el.textContent=text;
-  el.classList.add("show");
+function resetAll(){
+
+  const ok =
+    confirm(
+      "Playing Ticket data အားလုံး Reset လုပ်မလား?"
+    );
+
+  if(!ok) return;
+
+  state={
+
+    venue:"Pattaya Event Hall",
+
+    date:new Date()
+      .toISOString()
+      .slice(0,10),
+
+    seller:"",
+
+    language:"Myanmar",
+
+    qty:{},
+
+    images:{}
+
+  };
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(state)
+  );
+
+  renderTickets();
+
+  calculate();
+
+  document.getElementById("venue")
+    .value=state.venue;
+
+  document.getElementById("date")
+    .value=state.date;
+
+  document.getElementById("seller")
+    .value="";
+
+  document.getElementById("language")
+    .value="Myanmar";
+
+  document.getElementById("savedStatus")
+    .textContent="Not Saved";
+
+  showToast("🔄 Reset complete");
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent=message;
+
+  toast.classList.add("show");
 
   setTimeout(()=>{
-    el.classList.remove("show");
+    toast.classList.remove("show");
   },1800);
 
 }
 
-function scrollTopPage(){
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
-render();
+
+function escapeAttr(value){
+
+  return escapeHTML(value);
+
+}
 
 </script>
 
