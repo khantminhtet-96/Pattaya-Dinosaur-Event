@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pattaya Dinosaur Event</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Myanmar",sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 15% 0%,#7c3aed 0,#25105c 25%,#07111f 70%);overflow-x:hidden}.orb{position:fixed;border-radius:50%;filter:blur(25px);opacity:.4;z-index:-1;animation:float 7s ease-in-out infinite}.o1{width:190px;height:190px;background:#00e5ff;top:8%;left:-60px}.o2{width:230px;height:230px;background:#ff2bd6;right:-70px;bottom:8%;animation-delay:2s}@keyframes float{50%{transform:translateY(-25px) scale(1.08)}}.wrap{max-width:1100px;margin:auto;padding:18px}.glass{background:#ffffff12;border:1px solid #ffffff20;box-shadow:0 20px 50px #0005;backdrop-filter:blur(18px);border-radius:24px}.hero{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:16px}.brand h1{margin:0;font-size:clamp(26px,6vw,42px)}.brand p{margin:5px 0;color:#cbd5e1}.panel{padding:18px;margin-bottom:14px}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.tabs button,.actions button,.reset{border:0;border-radius:14px;padding:13px 15px;font-weight:900;cursor:pointer;background:linear-gradient(135deg,#67e8f9,#a7f3d0);color:#08111e}.tabs button.active{background:linear-gradient(135deg,#a78bfa,#22d3ee)}button.secondary{background:#ffffff14;color:#fff;border:1px solid #ffffff22}.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.field label,.setting label{display:block;font-size:13px;color:#dbeafe;margin:0 0 7px;font-weight:800}.field input,.field select,.setting input{width:100%;padding:13px;border-radius:13px;border:1px solid #ffffff20;background:#0003;color:#fff;outline:none}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.actions button{flex:1;min-width:150px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}.stat{padding:16px}.stat small{color:#cbd5e1}.stat strong{display:block;font-size:25px;margin-top:5px}.tickets{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.ticket{padding:10px;overflow:hidden}.ticket-img{height:180px;border-radius:17px;overflow:hidden;background:linear-gradient(135deg,#dbeccf,#fff0a5);display:flex;align-items:center;justify-content:center;color:#17482f;position:relative}.ticket-img img{width:100%;height:100%;object-fit:cover}.photo{position:absolute;right:8px;bottom:8px;background:#000c;color:#fff;border:1px solid #ffffff22;border-radius:10px;padding:8px;font-size:12px;font-weight:900}.ticket h3{color:#fde68a;margin:11px 3px 4px}.ticket p{color:#cbd5e1;font-size:12px;min-height:32px;margin:0 3px 9px}.qty{display:grid;grid-template-columns:42px 1fr 42px;gap:6px}.qty button{border:0;border-radius:12px;background:#ffffff16;color:#fff;font-size:22px;font-weight:900}.qty input{text-align:center;border:0;border-radius:12px;background:#fff;color:#123;font-size:21px;font-weight:900}.clear{width:100%;margin-top:8px;padding:10px;border-radius:12px;border:1px solid #ff777755;background:#ff777715;color:#fecaca;font-weight:900}.report-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #ffffff14}.report-row strong{color:#fde68a}.settings-card{padding:14px;margin-bottom:12px}.setting-title{color:#fde68a;font-size:18px;font-weight:900;margin-bottom:10px}.preview{height:170px;border-radius:15px;background:linear-gradient(135deg,#dbeccf,#fff0a5);display:flex;align-items:center;justify-content:center;color:#17482f;overflow:hidden;margin-bottom:9px}.preview img{width:100%;height:100%;object-fit:cover}.photoBtn{display:block;text-align:center;padding:12px;border-radius:12px;background:#2563eb;color:#fff;font-weight:900;margin-bottom:8px}.remove{width:100%;padding:10px;border-radius:11px;background:#ff777715;color:#fecaca;border:1px solid #ff777744;font-weight:900}.saveSettings{width:100%;margin-top:12px;padding:14px;border:0;border-radius:14px;background:linear-gradient(135deg,#34d399,#22d3ee);font-weight:1000}.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;background:#fff;color:#123;padding:12px 18px;border-radius:13px;font-weight:900;transition:.25s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:650px){.wrap{padding:12px}.grid,.stats{grid-template-columns:1fr}.tickets{grid-template-columns:1fr 1fr}.ticket-img{height:145px}.ticket h3{font-size:15px}.tabs button{font-size:12px;padding:12px 5px}}@media(max-width:390px){.tickets{grid-template-columns:1fr}.ticket-img{height:190px}}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div>
+<main class="wrap">
+<header class="hero">
+<div class="brand"><h1>🦖 Pattaya Dinosaur Event</h1><p>Playing Ticket Management</p></div>
+<button class="reset secondary" onclick="resetAll()">Reset</button>
+</header>
+
+<nav class="tabs">
+<button class="active" data-page="play" onclick="page('play',this)">🎟️ Playing Ticket</button>
+<button data-page="report" onclick="page('report',this)">📊 Report</button>
+<button data-page="settings" onclick="page('settings',this)">⚙️ Settings</button>
+</nav>
+
+<section id="play" class="page active">
+<section class="glass panel">
+<div class="grid">
+<div class="field"><label>ပွဲလုပ်တဲ့နေရာအမည်</label><input id="place" placeholder="ဥပမာ - Pattaya Event Hall"></div>
+<div class="field"><label>ရက်စွဲ</label><input id="date" type="date"></div>
+</div>
+<div class="actions"><button onclick="saveData()">💾 Save</button><button class="secondary" onclick="exportCSV()">⬇ CSV ထုတ်မည်</button></div>
+</section>
+<section class="stats">
+<div class="glass stat"><small>ပွဲနေရာ</small><strong id="sPlace">—</strong></div>
+<div class="glass stat"><small>စုစုပေါင်း လက်မှတ်</small><strong id="sQty">0</strong></div>
+<div class="glass stat"><small>စုစုပေါင်းရောင်းရငွေ</small><strong id="sTotal">฿0</strong></div>
+</section>
+<section id="tickets" class="tickets"></section>
+</section>
+
+<section id="report" class="page">
+<div class="glass panel"><h2>📊 Report</h2><div id="reportBox"></div></div>
+</section>
+
+<section id="settings" class="page">
+<div class="glass panel"><h2>⚙️ Ticket Settings</h2><p style="color:#cbd5e1">Ticket ၅ မျိုးရဲ့ ပုံ၊ အမည်၊ ဈေးနှုန်း၊ Description ကို ဒီနေရာကနေပြောင်းနိုင်ပါတယ်။</p><div id="settingsBox"></div><button class="saveSettings" onclick="saveSettings()">💾 Save All Ticket Settings</button></div>
+</section>
+</main>
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY="PDE_TICKETS_V10", STATE="PDE_STATE_V10", HISTORY="PDE_HISTORY_V10";
+const defaults=[
+{id:"t1",name:"50B Activity Ticket",price:50,description:"Activity Ticket",icon:"🎟️"},
+{id:"t2",name:"100B Activity Ticket",price:100,description:"Activity Ticket",icon:"🎟️"},
+{id:"t3",name:"200B Activity Ticket",price:200,description:"Activity Ticket",icon:"🎟️"},
+{id:"t4",name:"Package A",price:0,description:"Special Dinosaur Package",icon:"🦕"},
+{id:"t5",name:"Package B",price:0,description:"Special Dinosaur Package",icon:"🦖"}
+];
+let tickets=read(KEY,defaults).map(x=>({...x}));
+let state=read(STATE,{place:"Pattaya Event Hall",date:today(),qty:{},images:{}});
+if(!state.qty)state.qty={};if(!state.images)state.images={};
+function read(k,d){try{let x=JSON.parse(localStorage.getItem(k));return x??d}catch(e){return d}}
+function today(){let d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function $(id){return document.getElementById(id)}
+function saveState(){localStorage.setItem(STATE,JSON.stringify(state))}
+function page(id,b){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));(b||document.querySelector('[data-page="'+id+'"]')).classList.add("active");if(id==="report")renderReport();if(id==="settings")renderSettings();scrollTo(0,0)}
+function init(){ $("place").value=state.place||"Pattaya Event Hall";$("date").value=state.date||today();renderTickets();renderSettings();calc()}
+init();
+
+function renderTickets(){
+ let box=$("tickets");box.innerHTML="";
+ tickets.forEach(t=>{
+  let q=Number(state.qty[t.id]||0),im=state.images[t.id]||"";
+  let el=document.createElement("div");el.className="glass ticket";
+  el.innerHTML='<div class="ticket-img">'+(im?'<img src="'+im+'">':'<div style="font-size:45px">'+t.icon+'</div>')+'<label class="photo">📷 Photo<input type="file" accept="image/*" hidden onchange="photo(event,\''+t.id+'\')"></label></div><h3>'+esc(t.name)+'</h3><p>'+esc(t.description)+' • ฿'+Number(t.price||0).toLocaleString()+'</p><div class="qty"><button onclick="qty(\''+t.id+'\','+(q-1)+')">−</button><input type="number" min="0" value="'+q+'" onchange="qty(\''+t.id+'\',this.value)"><button onclick="qty(\''+t.id+'\','+(q+1)+')">+</button></div><button class="clear" onclick="qty(\''+t.id+'\',0)">Clear This</button>';
+  box.appendChild(el);
+ });
+ calc()
+}
+function qty(id,v){v=Math.max(0,parseInt(v)||0);state.qty[id]=v;saveState();renderTickets()}
+function calc(){let q=0,a=0;tickets.forEach(t=>{let n=Number(state.qty[t.id]||0);q+=n;a+=n*Number(t.price||0)});$("sQty").textContent=q.toLocaleString();$("sTotal").textContent="฿"+a.toLocaleString();$("sPlace").textContent=$("place").value||state.place||"—"}
+function sync(){state.place=$("place").value.trim();state.date=$("date").value||today();saveState();calc()}
+$("place").addEventListener("input",sync);$("date").addEventListener("change",sync);
+
+function compress(file){return new Promise((resolve,reject)=>{let r=new FileReader();r.onload=()=>{let im=new Image();im.onload=()=>{let max=1200,s=Math.min(1,max/im.width),c=document.createElement("canvas");c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext("2d").drawImage(im,0,0,c.width,c.height);resolve(c.toDataURL("image/jpeg",.8))};im.onerror=reject;im.src=r.result};r.onerror=reject;r.readAsDataURL(file)})}
+async function photo(e,id){let f=e.target.files[0];if(!f)return;try{state.images[id]=await compress(f);saveState();renderTickets();renderSettings();toast("📷 လက်မှတ်ပုံ ပြောင်းပြီးပါပြီ")}catch(x){toast("❌ ပုံသိမ်းမရပါ")}}
+async function settingPhoto(e,id){let f=e.target.files[0];if(!f)return;try{state.images[id]=await compress(f);saveState();renderSettings();renderTickets();toast("📷 ပုံထည့်ပြီးပါပြီ")}catch(x){toast("❌ ပုံသိမ်းမရပါ")}}
+function removePhoto(id){delete state.images[id];saveState();renderSettings();renderTickets();toast("🗑️ ပုံဖျက်ပြီးပါပြီ")}
+
+function renderSettings(){
+ let b=$("settingsBox");b.innerHTML="";
+ tickets.forEach((t,i)=>{
+  let im=state.images[t.id]||"",d=document.createElement("div");d.className="glass settings-card";
+  d.innerHTML='<div class="setting-title">🎟️ Ticket '+(i+1)+'</div><div class="preview">'+(im?'<img src="'+im+'">':'<span style="font-size:42px">'+t.icon+'<br>No Photo</span>')+'</div><label class="photoBtn">📱 Phone ထဲကပုံရွေးရန်<input type="file" accept="image/*" hidden onchange="settingPhoto(event,\''+t.id+'\')"></label><button class="remove" onclick="removePhoto(\''+t.id+'\')">🗑️ Photo ဖျက်မည်</button><div class="setting"><label>✏️ လက်မှတ်အမည်</label><input id="name_'+t.id+'" value="'+attr(t.name)+'"></div><div class="setting" style="margin-top:10px"><label>💰 ဈေးနှုန်း (฿)</label><input id="price_'+t.id+'" type="number" min="0" value="'+Number(t.price||0)+'"></div><div class="setting" style="margin-top:10px"><label>📝 Description</label><input id="desc_'+t.id+'" value="'+attr(t.description)+'"></div>';
+  b.appendChild(d)
+ })
+}
+function saveSettings(){
+ tickets.forEach(t=>{let n=$("name_"+t.id),p=$("price_"+t.id),d=$("desc_"+t.id);if(n&&n.value.trim())t.name=n.value.trim();t.price=Math.max(0,Number(p.value)||0);t.description=d?d.value.trim():""});
+ localStorage.setItem(KEY,JSON.stringify(tickets));saveState();renderTickets();renderSettings();renderReport();toast("✅ အမည် / ဈေး / ပုံ အားလုံးသိမ်းပြီးပါပြီ")
+}
+function saveData(){sync();localStorage.setItem(KEY,JSON.stringify(tickets));let h=read(HISTORY,[]);h.unshift({date:state.date,place:state.place,qty:{...state.qty},time:Date.now()});localStorage.setItem(HISTORY,JSON.stringify(h.slice(0,100)));toast("💾 Data Saved")}
+function renderReport(){sync();let b=$("reportBox"),q=0,a=0,s='<div class="report-row"><span>📅 ရက်စွဲ</span><strong>'+esc(state.date)+'</strong></div><div class="report-row"><span>📍 နေရာ</span><strong>'+esc(state.place)+'</strong></div>';tickets.forEach(t=>{let n=Number(state.qty[t.id]||0),x=n*Number(t.price||0);q+=n;a+=x;s+='<div class="report-row"><span>'+esc(t.name)+'</span><strong>'+n+' × ฿'+Number(t.price||0).toLocaleString()+'</strong></div>'});s+='<div class="report-row"><span>🎟️ Total</span><strong>'+q.toLocaleString()+'</strong></div><div class="report-row"><span>💰 Total Sales</span><strong>฿'+a.toLocaleString()+'</strong></div>';b.innerHTML=s}
+function exportCSV(){sync();let out=[["Pattaya Dinosaur Event"],["Ticket","Quantity","Price","Total","Date","Place"]];tickets.forEach(t=>{let n=Number(state.qty[t.id]||0);out.push([t.name,n,t.price,n*t.price,state.date,state.place])});let csv=out.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(",")).join("\n"),a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv"}));a.download="pattaya-dinosaur-ticket-"+state.date+".csv";a.click()}
+function resetAll(){if(!confirm("Ticket အရေအတွက်ကို Reset လုပ်မလား?"))return;state.qty={};saveState();renderTickets();calc();toast("🔄 Quantity Reset")}
+function toast(m){let x=$("toast");x.textContent=m;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1800)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function attr(s){return esc(s)}
+</script>
+</body>
+</html>
